@@ -59,6 +59,14 @@ Drawer.prototype.redraw = function() {
         this.preDot.selected = true;
         this.preDot.draw(ctx)
     }
+    if (this.points.length >= 4){
+      var l = this.points.length;
+      ctx.beginPath();
+      ctx.moveTo(this.points[l-4].x,this.points[l-4].y);
+      ctx.bezierCurveTo(this.points[l-3].x,this.points[l-3].y,this.points[l-2].x,this.points[l-2].y,this.points[l-1].x,this.points[l-1].y);
+      ctx.strokeStyle = "red";
+      ctx.stroke();
+    }
 
 };
 
